@@ -1,4 +1,5 @@
 export * from "./biomes";
+export * from "./commands";
 export * from "./enchantment";
 export * from "./health";
 export * from "./mob";
