@@ -3,6 +3,7 @@ export * from "./biomes";
 export * from "./command";
 export * from "./enchantment";
 export * from "./health";
+export * from "./item";
 export * from "./mob";
 export * from "./structure";
 export * from "./trades";
