@@ -23,6 +23,8 @@
   ],
   "scripts": {
     "build": "tsc",
+    "test": "npm run build && node --test --test-reporter=./test/test-reporter.cjs",
+    "test:unit": "npm run build && node --test --test-reporter=./test/test-reporter.cjs test/unit/*.test.cjs",
     "prepare": "npm run build"
   },
   "devDependencies": {
