@@ -4,5 +4,6 @@ export * from "./commands";
 export * from "./enchantment";
 export * from "./health";
 export * from "./mob";
+export * from "./structure";
 export * from "./trades";
 export * from "./versions";
