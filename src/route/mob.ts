@@ -9,9 +9,9 @@ interface mobOpts {
 export async function getMob(options: mobOpts = {}): Promise<MobsResponse | MobSingleResponse> {
     const {id, type} = options;
     if (id) {
-        return request<MobSingleResponse>(`/mobs/${id}`)
+        return request<MobSingleResponse>(`/mobs/${encodeURIComponent(id)}`)
     } else if (type) {
-        return request<MobsResponse>(`/mobs?type=${type}`)
+        return request<MobsResponse>(`/mobs?type=${encodeURIComponent(type)}`)
     } else {
         return request<MobsResponse>(`/mobs`)
     }
