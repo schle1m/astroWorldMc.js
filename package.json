@@ -10,6 +10,7 @@
   "keywords": [
     "Minecraft Api", "Api wrapper", "typed", "Minecraft Data" 
   ],
+  "repository": {"type": "git", "url": "https://github.com/schle1m/astroWorldMc.js.git"},
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
