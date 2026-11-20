@@ -1,6 +1,6 @@
 {
   "name": "astroworldmc.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A TypeScript npm wrapper for the AstroWorldMC API!",
   "license": "ISC",
   "author": "schle1m",
