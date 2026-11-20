@@ -1,3 +1,4 @@
+import { createParams } from "../helpers/createParams";
 import { request } from "../helpers/req";
 import type { ItemResponse, ItemSingleResponse } from "../typings/items";
 
@@ -7,12 +8,11 @@ interface itemOptions {
 }
 
 export async function getItem(options: itemOptions = {}) : Promise<ItemResponse | ItemSingleResponse> {
-    const {slug, category }  = options;
+    const {slug, ...filters }  = options;
     if (slug && slug.length > 1) {
         return request<ItemSingleResponse>(`/items/${encodeURIComponent(slug)}`)
-    } else if (category) {
-        return request<ItemResponse>(`/items?category=${encodeURIComponent(category)}`)
     } else {
-        return request<ItemResponse>(`/items`)
+        const params = createParams(filters)
+        return request<ItemResponse>(`/items?${params}`)
     }
 }

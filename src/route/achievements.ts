@@ -1,3 +1,4 @@
+import { createParams } from "../helpers/createParams";
 import { request } from "../helpers/req"
 import type { achievementssResponse, achievementssResponseSingular } from "../typings/achievements"
 
@@ -11,12 +12,7 @@ export async function getAchievement(options: opts = {}): Promise <achievementss
     if (slug && slug.length > 0) {
         return request<achievementssResponseSingular>(`/achievements/${encodeURIComponent(slug)}`);
     } else {
-        const params = new URLSearchParams()
-        for (const [key, value] of Object.entries(filters)) {
-            if (value !== undefined && value !== "") {
-                params.set(key, value);
-            }
-        }
-        return request<achievementssResponse>(`/achievements/?${params.toString()}`)
+        const params = createParams(filters)
+        return request<achievementssResponse>(`/achievements/?${params}`)
     }
 }

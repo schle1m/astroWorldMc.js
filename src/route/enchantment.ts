@@ -1,3 +1,4 @@
+import { createParams } from "../helpers/createParams";
 import { request } from "../helpers/req";
 import type { EnchantmentSingleResponse, EnchantmentsResponse } from "../typings/enchantment";
 
@@ -6,12 +7,11 @@ interface enchantOptions {
     category?: string;
 }
 export async function getEnchant(options: enchantOptions = {}): Promise <EnchantmentsResponse | EnchantmentSingleResponse> {
-    const {slug, category} = options;
-    if (slug) {
-        return request<EnchantmentSingleResponse>(`/enchantments/${encodeURIComponent(slug)}`);;
-    } else if (category) {
-        return request<EnchantmentsResponse>(`/enchantments/?category=${encodeURIComponent(category)}`)
+    const {slug, ...filters} = options;
+    if (slug && slug.length > 0) {
+        return request<EnchantmentSingleResponse>(`/enchantments/${encodeURIComponent(slug)}`)
     } else {
-        return request<EnchantmentsResponse>(`/enchantments`);
+        const parms = createParams(filters)
+        return request<EnchantmentsResponse>(`/enchantments?${parms}`)
     }
 }
