@@ -1,0 +1,22 @@
+import { request } from "../helpers/req"
+import type { achievementssResponse, achievementssResponseSingular } from "../typings/achievements"
+
+interface opts {
+    slug?: string,
+    tab?: string;
+    difficulty?: string
+}
+export async function getAchievement(options: opts = {}): Promise <achievementssResponse | achievementssResponseSingular> { 
+    const {slug, ...filters} = options;
+    if (slug && slug.length > 0) {
+        return request<achievementssResponseSingular>(`/achievements/${encodeURIComponent(slug)}`);
+    } else {
+        const params = new URLSearchParams()
+        for (const [key, value] of Object.entries(filters)) {
+            if (value !== undefined && value !== "") {
+                params.set(key, value);
+            }
+        }
+        return request<achievementssResponse>(`/achievements/?${params.toString()}`)
+    }
+}

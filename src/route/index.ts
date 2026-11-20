@@ -1,3 +1,4 @@
+export * from "./achievements";
 export * from "./biomes";
 export * from "./command";
 export * from "./enchantment";
