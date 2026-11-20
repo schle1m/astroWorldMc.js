@@ -16,6 +16,10 @@ npm install astroworldmc.js
 You can find usage examples in the `/examples` directory.
 You can also read the source code to learn more about the available functions and how they work.
 
+## Navigation
+- **Source Code / Github Repo** https://github.com/schle1m/astroWorldMc.js/
+- **Issues (Bug Reports, Suggestions etc)** https://github.com/schle1m/astroWorldMc.js/issues
+
 ## Notes
 - **Still in development:** AstroWorldMc.js is an ongoing project, and more features are planned!
 - **Bug reports:** If you encounter any bugs or unexpected behavior, please report them through the GitHub Issues page
