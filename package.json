@@ -7,6 +7,9 @@
   "type": "commonjs",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "keywords": [
+    "Minecraft Api", "Api wrapper", "typed", "Minecraft Data" 
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
