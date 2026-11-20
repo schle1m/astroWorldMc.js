@@ -2,14 +2,14 @@ import { request } from "../helpers/req"
 import type { MobsResponse, MobSingleResponse } from "../typings/mob"
 
 interface mobOpts {
-    id?: string;
+    slug?: string;
     type?: string;
 }
 
 export async function getMob(options: mobOpts = {}): Promise<MobsResponse | MobSingleResponse> {
-    const {id, type} = options;
-    if (id) {
-        return request<MobSingleResponse>(`/mobs/${encodeURIComponent(id)}`)
+    const {slug, type} = options;
+    if (slug) {
+        return request<MobSingleResponse>(`/mobs/${encodeURIComponent(slug)}`)
     } else if (type) {
         return request<MobsResponse>(`/mobs?type=${encodeURIComponent(type)}`)
     } else {
