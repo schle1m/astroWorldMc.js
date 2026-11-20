@@ -4,6 +4,7 @@ import type { ItemResponse, ItemSingleResponse } from "../typings/items";
 
 interface itemOptions {
     slug?: string,
+    search?: string;
     category?: string
 }
 

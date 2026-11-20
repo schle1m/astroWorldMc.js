@@ -4,6 +4,7 @@ import type { EnchantmentSingleResponse, EnchantmentsResponse } from "../typings
 
 interface enchantOptions {
     slug?: string,
+    search?: string;
     category?: string;
 }
 export async function getEnchant(options: enchantOptions = {}): Promise <EnchantmentsResponse | EnchantmentSingleResponse> {

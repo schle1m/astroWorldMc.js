@@ -3,7 +3,9 @@ import { request } from "../helpers/req";
 import type { BiomesResponse, BiomesResponseSingle} from "../typings/biomes";
 interface BiomeOptions {
     slug?: string;
+    search?: string
     dimension?: string;
+    category?: string
     rarity?: string;
 }
 export async function getBiome(options: BiomeOptions = {}): Promise<BiomesResponse | BiomesResponseSingle> {

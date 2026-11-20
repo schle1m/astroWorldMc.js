@@ -4,6 +4,7 @@ import type { MobsResponse, MobSingleResponse } from "../typings/mob"
 
 interface mobOpts {
     slug?: string;
+    search?: string,
     type?: string;
     category?: string
 }

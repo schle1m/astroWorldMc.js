@@ -16,3 +16,7 @@ export interface VersionsResponse {
     count: number;
     data: Version[];
 }
+export interface VersionsResponseSingle {
+    success: boolean;
+    data: Version[];
+}

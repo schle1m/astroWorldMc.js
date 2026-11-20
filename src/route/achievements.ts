@@ -4,6 +4,7 @@ import type { achievementssResponse, achievementssResponseSingular } from "../ty
 
 interface opts {
     slug?: string,
+    search?: string;
     tab?: string;
     difficulty?: string
 }

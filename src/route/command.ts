@@ -4,6 +4,7 @@ import type { CommandResponse, CommandResponseSingel } from "../typings/commands
 
 interface opts {
     slug?: string,
+    search?: string
     category?: string,
     permissionLevel?: string
 }

@@ -4,6 +4,7 @@ import type { StructuresResponse, StructuresResponseSingle } from "../typings/st
 
 interface strucOpts {
     slug?: string,
+    search?: string
     rarity?: string,
     dimension?: string,
     category?: string
