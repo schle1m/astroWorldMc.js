@@ -41,3 +41,13 @@ export interface MobSingleResponse {
     success: boolean;
     data: Mob;
 }
+
+export interface MobOptions {
+    slug?: string;
+    search?: string;
+    type?: string;
+    category?: string;
+}
+export interface MobSlugOptions extends MobOptions {
+    slug: string; 
+ }

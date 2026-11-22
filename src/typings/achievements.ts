@@ -24,3 +24,13 @@ export interface achievementssResponseSingular {
     success: boolean;
     data: achievement[];
 }
+
+export interface AchievementOptions {
+    slug?: string;
+    search?: string
+    tab?: string;
+    difficulty?: string;
+}
+export interface AchievementSlugOptions extends AchievementOptions {
+    slug: string;
+}

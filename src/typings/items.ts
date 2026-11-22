@@ -31,3 +31,12 @@ export interface ItemSingleResponse {
     success: boolean;
     data: Item;
 }
+
+export interface ItemOptions {
+    slug?: string;
+    search?: string;
+    category?: string;
+}
+export interface ItemSlugOptions extends ItemOptions {
+    slug: string;
+}

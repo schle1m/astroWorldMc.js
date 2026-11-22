@@ -1,14 +1,12 @@
 import { createParams } from "../helpers/createParams";
 import { request } from "../helpers/req";
-import type { CommandResponse, CommandResponseSingel } from "../typings/commands";
+import type { CommandOptions, CommandSlugOptions, CommandResponse, CommandResponseSingel } from "../typings/commands";
 
-interface opts {
-    slug?: string,
-    search?: string
-    category?: string,
-    permissionLevel?: string
-}
-export async function getCommand(options: opts = {}): Promise <CommandResponse | CommandResponseSingel> {
+export function getCommand(options: CommandSlugOptions): Promise<CommandResponseSingel>
+export function getCommand(options?: CommandOptions & {  slug?: undefined }): Promise<CommandResponse>;
+export function getCommand(options: CommandOptions): Promise<CommandResponse | CommandResponseSingel>
+
+export async function getCommand(options: CommandOptions = {}): Promise<CommandResponse | CommandResponseSingel> {
     const {slug,  ...filters} = options;
     if (slug && slug.length > 0) {
         return request<CommandResponseSingel>(`/commands/${encodeURIComponent(slug)}`)

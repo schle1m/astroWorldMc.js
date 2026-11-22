@@ -24,3 +24,12 @@ export interface EnchantmentSingleResponse {
     success: boolean;
     data: Enchantment;
 }
+
+export interface EnchantOptions {
+    slug?: string;
+    search?: string;
+    category?: string;
+}
+export interface EnchantSlugOptions extends EnchantOptions {
+    slug: string;
+}

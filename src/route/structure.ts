@@ -1,21 +1,17 @@
 import { createParams } from "../helpers/createParams";
 import { request } from "../helpers/req";
-import type { StructuresResponse, StructuresResponseSingle } from "../typings/structure";
+import type {StructureOptions, StructureSlugOptions, StructuresResponse, StructuresResponseSingle } from "../typings/structure";
 
-interface strucOpts {
-    slug?: string,
-    search?: string
-    rarity?: string,
-    dimension?: string,
-    category?: string
-}
+export function getStructure(options: StructureSlugOptions): Promise<StructuresResponseSingle>;
+export function getStructure(options?: StructureOptions & { slug?: undefined }): Promise<StructuresResponse>;
+export function getStructure(options: StructureOptions): Promise<StructuresResponse | StructuresResponseSingle>
 
-export async function getStructure(options: strucOpts = {}): Promise <StructuresResponse | StructuresResponseSingle> {
+export async function getStructure(options: StructureOptions = {}): Promise<StructuresResponse | StructuresResponseSingle> {
     const {slug, ...filters} = options;
-    if (slug && slug.length > 1) {
+    if (slug && slug.length > 0) {
         return request<StructuresResponseSingle>(`/structures/${encodeURIComponent(slug)}`)
     } else {
         const params = createParams(filters)
-        return request(`/structures?${params}`)
+        return request<StructuresResponse>(`/structures?${params}`)
     }
 }

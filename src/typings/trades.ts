@@ -28,3 +28,11 @@ export interface TradeResponse {
     count: number;
     data: Villager[];
 }
+
+export interface TradeOptions {
+    slug?: string;
+    search?: string;
+}
+export interface TradeSlugOptions extends TradeOptions {
+    slug: string;
+}
