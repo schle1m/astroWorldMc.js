@@ -20,3 +20,13 @@ export interface VersionsResponseSingle {
     success: boolean;
     data: Version[];
 }
+
+export interface VersionOptions {
+    slug?: string;
+    type?: string;
+    edition?: string;
+}
+
+export interface VersionSlugOptions extends VersionOptions {
+    slug: string;
+}

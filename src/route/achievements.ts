@@ -1,14 +1,11 @@
 import { createParams } from "../helpers/createParams";
 import { request } from "../helpers/req"
-import type { achievementssResponse, achievementssResponseSingular } from "../typings/achievements"
+import type { AchievementOptions, AchievementSlugOptions, achievementssResponse, achievementssResponseSingular } from "../typings/achievements"
 
-interface opts {
-    slug?: string,
-    search?: string;
-    tab?: string;
-    difficulty?: string
-}
-export async function getAchievement(options: opts = {}): Promise <achievementssResponse | achievementssResponseSingular> { 
+export function getAchievement(options: AchievementSlugOptions): Promise<achievementssResponseSingular>;
+export function getAchievement(options?: AchievementOptions & { slug?: undefined }): Promise<achievementssResponse>;
+export function getAchievement(options: AchievementOptions): Promise<achievementssResponse | achievementssResponseSingular>;
+export async function getAchievement(options: AchievementOptions = {}): Promise<achievementssResponse | achievementssResponseSingular> {
     const {slug, ...filters} = options;
     if (slug && slug.length > 0) {
         return request<achievementssResponseSingular>(`/achievements/${encodeURIComponent(slug)}`);

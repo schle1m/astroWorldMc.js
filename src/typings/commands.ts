@@ -30,3 +30,14 @@ export interface CommandResponseSingel {
     success: boolean;
     data: MinecraftCommand[];
 }
+
+export interface CommandOptions {
+    slug?: string;
+    search?: string;
+    category?: string;
+    permissionLevel?: string;
+}
+
+export interface CommandSlugOptions extends CommandOptions {
+    slug: string;
+}

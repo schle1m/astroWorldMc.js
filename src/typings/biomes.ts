@@ -29,3 +29,14 @@ export interface BiomesResponseSingle {
     success: boolean;
     data: Biome;
 }
+
+export interface BiomeOptions {
+    slug?: string;
+    search?: string;
+    dimension?: string;
+    category?: string,
+    rarity?: string;
+}
+export interface BiomeSlugOptions extends BiomeOptions {
+    slug: string;
+}

@@ -35,3 +35,16 @@ export interface StructuresResponseSingle {
     success: boolean;
     data: Structure[];
 }
+
+export interface StructureOptions {
+    slug?: string;
+    search?: string;
+    rarity?: string;
+    dimension?: string;
+    category?: string;
+}
+
+
+export interface StructureSlugOptions extends  StructureOptions {
+    slug: string;
+}
